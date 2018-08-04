@@ -8,7 +8,10 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $this->view->render('Домашняя страница');
+        $params = [
+            'title' => 'Главная страница'
+        ];
+        $this->view->render('index', $params);
 
     }
 }

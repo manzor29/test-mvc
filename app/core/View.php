@@ -4,25 +4,17 @@ namespace app\core;
 
 class View
 {
-    public $path;
-    public $route;
-    public $layout = 'main';
-
-    public function __construct($route)
+    public function render($view, $params = [], $layout = 'main')
     {
-        $this->route = $route;
-        $this->path = $route['controller'] . '/' . $route['action'];
-    }
+        extract($params);
 
-    public function render($title, $params = [])
-    {
-        if (file_exists('app/views/' . $this->path . '.php')) {
+        if (file_exists('app/views/' . $view . '.php')) {
             ob_start();
-            require 'app/views/' . $this->path . '.php';
+            require 'app/views/' . $view . '.php';
             $content = ob_get_clean();
-            require 'app/views/layouts/' . $this->layout . '.php';
+            require 'app/views/layouts/' . $layout . '.php';
         } else {
-            echo 'Вид <b>' . $this->path . '</b> не найден';
+            echo 'Вид <b>' . $view . '</b> не найден';
         }
     }
 }

@@ -8,6 +8,7 @@
     <title><?= $title ?></title>
 </head>
 <body style="background-color: silver">
+    <h2><?= $title ?></h2>
     <?= $content ?>
 </body>
 </html>

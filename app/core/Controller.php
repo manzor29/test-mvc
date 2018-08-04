@@ -4,13 +4,11 @@ namespace app\core;
 
 class Controller
 {
-    public $route;
     public $view;
 
-    public function __construct($route)
+    public function __construct()
     {
-        $this->route = $route;
-        $this->view = new View($route);
+        $this->view = new View();
     }
 
 }

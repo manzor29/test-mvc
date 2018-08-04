@@ -1,12 +1,13 @@
-<p>Список всех сообщений</p>
-
+{% extends layout %}
+{% block content %}
 <ul>
-    <?php foreach($posts as $post): ?>
+    {% for post in posts %}
         <li>
-            Тема: <?= $post->theme->title ?><br>
-            Сообщение: <?= $post->content ?><br>
-            Автор: <?= $post->user->name ?><br>
+            Тема: {{ post.theme.title }}<br>
+            Сообщение: {{ post.content }}<br>
+            Автор: {{ post.user.name }}<br>
         </li>
-    <?php endforeach ?>
+        <br>
+    {% endfor %}
 </ul>
-
+{% endblock %}

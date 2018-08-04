@@ -9,9 +9,9 @@ class HomeController extends Controller
     public function index()
     {
         $params = [
-            'title' => 'Главная страница'
+            'title' => 'Главная страница',
         ];
-        $this->view->render('index', $params);
 
+        $this->view->render('index', $params);
     }
 }

@@ -9,11 +9,13 @@ class PostController extends Controller
 {
     public function all()
     {
-        $posts = Post::all();
+        $posts = Post::with(['user', 'theme'])->get();
         $params = [
+            'layout' => 'dark',
             'title' => 'Все сообщения',
             'posts' => $posts
         ];
-        $this->view->render('post/all', $params, 'dark');
+
+        $this->view->render('post/all', $params);
     }
 }

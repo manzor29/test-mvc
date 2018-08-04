@@ -3,7 +3,8 @@
   "description":"---",
   "type":"project",
   "require": {
-    "illuminate/database": "5.1.8"
+    "illuminate/database": "5.1.8",
+    "twig/twig": "^2.0"
   },
   "autoload": {
     "psr-4" : {

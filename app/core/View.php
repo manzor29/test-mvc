@@ -2,19 +2,18 @@
 
 namespace app\core;
 
+use Twig_Environment;
+use Twig_Loader_Filesystem;
+
 class View
 {
-    public function render($view, $params = [], $layout = 'main')
+    public function render($view, $params = [])
     {
-        extract($params);
+        $loader = new Twig_Loader_Filesystem('app/views');
+        $twig = new Twig_Environment($loader);
 
-        if (file_exists('app/views/' . $view . '.php')) {
-            ob_start();
-            require 'app/views/' . $view . '.php';
-            $content = ob_get_clean();
-            require 'app/views/layouts/' . $layout . '.php';
-        } else {
-            echo 'Вид <b>' . $view . '</b> не найден';
-        }
+        $params['layout'] = (isset($params['layout'])) ? 'layouts/' . $params['layout'] . '.php' : 'layouts/main.php';
+
+        echo $twig->render($view . '.php', $params);
     }
 }

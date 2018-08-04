@@ -3,7 +3,9 @@
 <ul>
     <?php foreach($posts as $post): ?>
         <li>
-            <?= $post['user'] ?>: <?= $post['message'] ?>
+            Тема: <?= $post->theme->title ?><br>
+            Сообщение: <?= $post->content ?><br>
+            Автор: <?= $post->user->name ?><br>
         </li>
     <?php endforeach ?>
 </ul>

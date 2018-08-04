@@ -3,24 +3,16 @@
 namespace app\controllers;
 
 use app\core\Controller;
+use app\models\Post;
 
 class PostController extends Controller
 {
     public function all()
     {
+        $posts = Post::all();
         $params = [
             'title' => 'Все сообщения',
-            'posts' => [
-                [
-                    'user' => 'John',
-                    'message' => 'Hello!!!'
-                ],
-                [
-                    'user' => 'michael',
-                    'message' => 'How are you?'
-                ],
-
-            ]
+            'posts' => $posts
         ];
         $this->view->render('post/all', $params, 'dark');
     }

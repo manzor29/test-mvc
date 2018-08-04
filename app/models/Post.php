@@ -14,10 +14,16 @@ class Post extends Model
         'theme_id',
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function user() {
         return $this->belongsTo('app\models\User');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function theme() {
         return $this->belongsTo('app\models\Theme');
     }

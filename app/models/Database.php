@@ -4,7 +4,11 @@ namespace app\models;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
 
-class Database {
+class Database
+{
+    /**
+     * Database constructor.
+     */
     function __construct() {
         $capsule = new Capsule;
         $capsule->addConnection([

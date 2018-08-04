@@ -7,6 +7,9 @@ use app\models\Post;
 
 class PostController extends Controller
 {
+    /**
+     *
+     */
     public function all()
     {
         $posts = Post::with(['user', 'theme'])->get();

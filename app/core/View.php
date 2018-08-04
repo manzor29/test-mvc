@@ -7,6 +7,13 @@ use Twig_Loader_Filesystem;
 
 class View
 {
+    /**
+     * @param $view
+     * @param array $params
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
+     */
     public function render($view, $params = [])
     {
         $loader = new Twig_Loader_Filesystem('app/views');

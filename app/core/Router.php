@@ -7,6 +7,9 @@ class Router
     protected $routes = [];
     protected $params = [];
 
+    /**
+     * Router constructor.
+     */
     public function __construct()
     {
         $routes = require 'app/routes/web.php';
@@ -15,12 +18,19 @@ class Router
         }
     }
 
+    /**
+     * @param $roteKey
+     * @param $routeParams
+     */
     public function add($roteKey, $routeParams)
     {
         $routeMask = '#^' . $roteKey . '$#';
         $this->routes[$routeMask] = $routeParams;
     }
 
+    /**
+     * @return bool
+     */
     public function match()
     {
         $url = trim($_SERVER['REQUEST_URI'], '/');
@@ -35,6 +45,9 @@ class Router
         return false;
     }
 
+    /**
+     *
+     */
     public function run()
     {
         if ($this->match()) {

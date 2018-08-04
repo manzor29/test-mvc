@@ -12,6 +12,9 @@ class User extends Model
         "name"
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function posts() {
         return $this->hasMany('app\models\Post');
     }

@@ -2,11 +2,11 @@
 
 return [
     '' => [
-        'controller' => 'home',
+        'controller' => 'HomeController',
         'action' => 'index',
     ],
     'posts/all' => [
-        'controller' => 'post',
+        'controller' => 'PostController',
         'action' => 'all',
     ],
 ];

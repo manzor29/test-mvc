@@ -38,20 +38,20 @@ class Router
     public function run()
     {
         if ($this->match()) {
-            $class = 'app\controllers\\' . ucfirst($this->params['controller']) . 'Controller';
+            $class = 'app\controllers\\' . $this->params['controller'];
             if (class_exists($class)) {
                 $action = $this->params['action'];
                 if (method_exists($class, $action)) {
                     $controller = new $class($this->params);
                     $controller->$action();
                 } else {
-                    echo 'Метод <b>' . $action . '</b> не найден';
+                    header("HTTP/1.0 404 Not Found");
                 }
             } else {
-                echo 'Контроллер <b>' . $class . '</b> не найден';
+                header("HTTP/1.0 404 Not Found");
             }
         } else {
-            echo 'Роут не найден';
+            header("HTTP/1.0 404 Not Found");
         }
     }
 
